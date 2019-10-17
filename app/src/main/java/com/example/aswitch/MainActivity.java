@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity {
 
     // variables for layout widgets
@@ -20,6 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Service kicks off here
+        Intent serviceIntent = new Intent(this, DineshsIntentService.class);
+        startService(serviceIntent);
+
+        //new service kicks off here
+        Intent myServiceIntent = new Intent(this, MyService.class);
+        startService(myServiceIntent);
 
         //references
         btn1 = (Button) findViewById(R.id.btn1);
